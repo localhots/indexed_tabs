@@ -11,6 +11,11 @@ var update = function(info) {
         return;
     }
 
+    // We can only fast switch to tabs 1-9
+    if (info.index > 8) {
+        return;
+    }
+
     // Ignore chrome pages
     if (!info.url.match(/^http/)) {
         return;
