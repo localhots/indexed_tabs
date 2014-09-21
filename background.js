@@ -39,7 +39,7 @@ function updateTab(info) {
         code: "document.title = '" + title + "';"
     }, function() {
         if (chrome.runtime.lastError) {
-            console.log(chrome.runtime.lastError.message);
+            console.error(chrome.runtime.lastError.message);
         }
     });
 };
