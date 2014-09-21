@@ -16,6 +16,11 @@ function updateTab(info) {
         return;
     }
 
+    // Don't change title unless request is complete
+    if (info.status !== "complete") {
+        return;
+    }
+
     // Ignore chrome pages
     if (!info.url.indexOf('http') === 0) {
         return;
