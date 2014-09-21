@@ -6,28 +6,22 @@ chrome.runtime.getPlatformInfo(function(info) {
 });
 
 function updateTab(info) {
-    // Ignore pinned tabs
-    if (info.pinned) {
-        return;
-    }
+    if (
+        // Ignore pinned tabs
+        info.pinned ||
 
-    // We can only fast switch to tabs 1-9
-    if (info.index > 8) {
-        return;
-    }
+        // We can only fast switch to tabs 1-9
+        info.index > 8 ||
 
-    // Don't change title unless request is complete
-    if (info.status !== "complete") {
-        return;
-    }
+        // Don't change title unless request is complete
+        info.status !== "complete" ||
 
-    // Ignore chrome pages
-    if (!info.url.indexOf('http') === 0) {
-        return;
-    }
+        // Ignore chrome and file urls
+        !info.url.indexOf('http') === 0 ||
 
-    // Ignore Chrome Web Store (restricted)
-    if (info.url.indexOf('https://chrome.google.com/webstore/') === 0) {
+        // Ignore Chrome Web Store
+        info.url.indexOf('https://chrome.google.com/webstore/') === 0
+    ) {
         return;
     }
 
