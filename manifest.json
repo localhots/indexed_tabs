@@ -3,6 +3,9 @@
 
     "name": "Indexed Tabs",
     "description": "Shows tab numbers for fast switching",
+    "icons": {
+        "128": "resources/icon128.png"
+    },
     "version": "1.0",
 
     "permissions": [
