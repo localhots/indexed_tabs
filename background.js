@@ -17,7 +17,7 @@ function updateTab(info) {
         info.status !== "complete" ||
 
         // Ignore chrome and file urls
-        !info.url.indexOf('http') === 0 ||
+        info.url.indexOf('http') !== 0 ||
 
         // Ignore Chrome Web Store
         info.url.indexOf('https://chrome.google.com/webstore/') === 0
