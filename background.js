@@ -38,6 +38,10 @@ function updateTab(info) {
 
     chrome.tabs.executeScript(info.id, {
         code: "document.title = '" + title + "';"
+    }, function() {
+        if (chrome.runtime.lastError) {
+            console.log(chrome.runtime.lastError.message);
+        }
     });
 };
 
