@@ -14,7 +14,7 @@ function updateTab(info) {
         info.index > 8 ||
 
         // Don't change title unless request is complete
-        info.status !== "complete" ||
+        info.status !== 'complete' ||
 
         // Ignore chrome and file urls
         info.url.indexOf('http') !== 0 ||
