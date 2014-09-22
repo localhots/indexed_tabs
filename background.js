@@ -36,7 +36,7 @@ function updateTab(info) {
     title = sym + (info.index + 1) + ' ' + title;
 
     chrome.tabs.executeScript(info.id, {
-        code: "document.title = '" + title + "';"
+        code: "document.title = '" + title.replace(/'/, '\\\'') + "';"
     }, function() {
         if (chrome.runtime.lastError) {
             console.error(chrome.runtime.lastError.message);
